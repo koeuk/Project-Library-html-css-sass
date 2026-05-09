@@ -301,22 +301,17 @@ footer .footer-left h3, footer .footer-right h3 {
 }
 footer .footer-left .email, footer .footer-left .phone-call { display: flex; align-items: center; gap: 10px; }
 footer .footer-left .email img, footer .footer-left .phone-call img {
-  width: 16px; height: 16px; object-fit: contain;
-  filter: brightness(0) invert(1); opacity: 0.7; flex-shrink: 0; margin-left: 0;
+  width: 22px; height: 22px; object-fit: contain; flex-shrink: 0; margin-left: 0;
 }
 footer .footer-left .email p, footer .footer-left .phone-call p { font-size: 14px; color: rgba(255,255,255,0.88); margin: 0; }
 footer .footer-center { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
-footer .footer-center .footer-logo { height: 50px; width: auto; filter: brightness(0) invert(1); opacity: 0.9; }
+footer .footer-center .footer-logo { height: 44px; width: auto; background: rgba(255,255,255,0.92); border-radius: 8px; padding: 5px 10px; }
 footer .footer-center .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.75; margin: 0; }
 footer .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
-footer .footer-right .icon { display: flex; align-items: center; gap: 8px; padding: 0; }
-footer .footer-right .icon a {
-  display: flex; align-items: center; justify-content: center;
-  width: 38px; height: 38px; background: rgba(255,255,255,0.15);
-  border-radius: 50%; transition: background 0.2s, transform 0.2s;
-}
-footer .footer-right .icon a:hover { background: rgba(255,255,255,0.3); transform: translateY(-3px); }
-footer .footer-right .icon img { width: 18px; height: 18px; object-fit: contain; filter: brightness(0) invert(1); margin: 0; }
+footer .footer-right .icon { display: flex; align-items: center; gap: 10px; padding: 0; }
+footer .footer-right .icon a { display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
+footer .footer-right .icon a:hover { transform: translateY(-3px); }
+footer .footer-right .icon img { width: 34px; height: 34px; object-fit: contain; margin: 0; border-radius: 50%; }
 footer .footer-bottom { padding: 16px 72px; text-align: center; }
 footer .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.45); margin: 0; }
 @media (max-width: 730px) {
