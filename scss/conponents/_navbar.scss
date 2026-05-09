@@ -1,81 +1,140 @@
 @import './variable';
 @import './main';
 @import '../responsive/responsive';
+
 nav {
-    @include format;
     position: sticky;
     top: 0;
     z-index: 100;
     background: $navbar-color;
-    border-bottom: 1px solid $card-color;
-    box-shadow: 0px 0px 3px 0px;
-    @include responsive(Mobile){
-        display: grid;
-        grid-template-columns: 0.5fr 0.5fr 0.5fr;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 56px;
+    height: 64px;
+    box-shadow: 0 2px 12px rgba(0, 185, 190, 0.15);
+
+    @include responsive(Laptop) {
+        padding: 0 32px;
     }
-    img {
-        width: 35%;
-        padding-left: 90px;
-        margin-top: 2px;
-        @include responsive(Laptop){
-            margin-top: 7px;
-        }
-        @include responsive(Tablet) {
-            padding-left: 50px;
-            margin-top: 9px;
-            width: 40%;
-        }
-        @include responsive(Mobile){
-            display: none;
+    @include responsive(Tablet) {
+        padding: 0 24px;
+        height: 56px;
+    }
+    @include responsive(Mobile) {
+        padding: 0 16px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+
+        img {
+            height: 40px;
+            width: auto;
+            padding: 0;
+            margin: 0;
+
+            @include responsive(Tablet) {
+                height: 32px;
+            }
+            @include responsive(Mobile) {
+                display: none;
+            }
         }
     }
+
     .menu-bar {
-        @include responsive(Laptop){
-            margin-bottom: 10px;
-        }
-        @include responsive(Mobile){
-            margin-bottom: 15px;
-        }
-        margin-top: -2px;
+        margin: 0;
+
         ul {
-            @include formated;
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            @include responsive(Tablet) {
+                gap: 28px;
+            }
+            @include responsive(Mobile) {
+                gap: 16px;
+            }
+
             li {
-                list-style: none;
-                margin-top: 17px;
+                margin: 0;
+
                 a {
                     text-decoration: none;
-                    color: $link-color;
-                    font-size: 20px;
+                    color: rgba(0, 185, 190, 0.75);
+                    font-size: 16px;
+                    font-weight: 700;
+                    letter-spacing: 1.5px;
                     text-transform: uppercase;
-                    @include responsive(Laptop){
-                        font-size: 18px;
-                    }
+                    transition: color 0.25s ease;
+                    position: relative;
+                    padding-bottom: 4px;
+
                     @include responsive(Tablet) {
-                        font-size: 15px;
+                        font-size: 14px;
+                        letter-spacing: 1px;
                     }
-                    @include responsive(Mobile){
-                        font-size: 10px;
-                        display: flex;
-                        justify-content: center;
-                        width: 80px;
+                    @include responsive(Mobile) {
+                        font-size: 13px;
+                        letter-spacing: 0.5px;
+                    }
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 0;
+                        height: 2px;
+                        background: $inter;
+                        border-radius: 2px;
+                        transition: width 0.25s ease;
+                    }
+
+                    &:hover {
+                        color: $inter;
+                        font-weight: 700;
+
+                        &::after { width: 100%; }
                     }
                 }
-                a:hover {
-                    color: $inter;
-                    transition: .3s;
-                    font-weight: 520;
+
+                a[style*="color"] {
+                    color: $inter !important;
+
+                    &::after { width: 100%; }
                 }
             }
         }
     }
-    .icons-color{
-        font-size: 30px;
-        color: $primary-color;
-        margin-top: 10px;
-        @include responsive(Mobile){
-            margin-top: 10px;
-            font-size: 20px;
-            margin-left: 80px;
+
+    .icons-color {
+        font-size: 26px;
+        color: rgba(0, 185, 190, 0.75);
+        display: block;
+        line-height: 1;
+        transition: color 0.25s ease, transform 0.25s ease;
+        margin: 0;
+
+        @include responsive(Tablet) {
+            font-size: 22px;
+        }
+    }
+
+    > a:last-child {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+
+        &:hover .icons-color {
+            color: $inter;
+            transform: scale(1.12);
         }
     }
 }
