@@ -476,6 +476,9 @@ footer .footer-bottom p {
   max-width: 820px;
   border-left: 5px solid #00B9BE;
 }
+.manager-section .manager-card--no-photo {
+  max-width: 580px;
+}
 @media screen and (max-width: 730px) {
   .manager-section .manager-card {
     flex-direction: column;
