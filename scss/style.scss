@@ -8,119 +8,169 @@ body {
         background-image: url("../images/Home/cover-home-page.jpg");
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: 0;
-        height: 500px;
-
-        @include responsive(Mobile) {
-            height: 10vh;
-            width: 100%;
-        }
+        background-position: center;
+        height: 580px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
 
         @include responsive(Tablet) {
-            height: 300px;
+            height: 420px;
+        }
+
+        @include responsive(Mobile) {
+            height: 320px;
+        }
+
+        .cover-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.75) 0%,
+                rgba(0, 0, 0, 0.45) 55%,
+                rgba(0, 0, 0, 0.08) 100%
+            );
+            z-index: 0;
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 1;
+            padding: 0 80px;
+            max-width: 640px;
+
+            @include responsive(Tablet) {
+                padding: 0 40px;
+            }
+
+            @include responsive(Mobile) {
+                padding: 0 24px;
+            }
+        }
+
+        .cover-eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: $inter;
+            border: 1px solid $inter;
+            padding: 6px 18px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+
+            @include responsive(Mobile) {
+                font-size: 10px;
+                padding: 4px 12px;
+                margin-bottom: 12px;
+            }
         }
 
         h1 {
-            text-shadow: 1px 3px #d2d8b0;
-            font-size: 50px;
-            color: $inter ;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 68px;
+            font-weight: 700;
+            color: $navbar-color;
+            line-height: 1.08;
+            letter-spacing: 2px;
+            margin: 0 0 20px 0;
+            padding: 0;
+            text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
 
             @include responsive(Tablet) {
-                font-size: 28px;
+                font-size: 44px;
             }
+
             @include responsive(Mobile) {
-                font-size: 20px;
+                font-size: 30px;
+                letter-spacing: 1px;
+                margin-bottom: 12px;
             }
         }
 
-        h1,
         p {
-            font-weight: 600;
-            padding: 50px 90px;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.82);
+            font-weight: 400;
+            line-height: 1.75;
+            margin: 0 0 36px 0;
+            padding: 0;
 
             @include responsive(Tablet) {
-                padding: 30px 50px;
+                font-size: 14px;
             }
+
             @include responsive(Mobile) {
-                padding: 30px 50px;
-            }            
+                font-size: 12px;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
         }
 
-        p {
-            b {
-                font-size: 20px;
-                color: rgba(0, 0, 0, 0.819);
+        .cover-actions {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
 
-                @include responsive(Tablet) {
-                    font-size: 15px;
-                }
-                @include responsive(Mobile) {
-                    text-shadow: 1px 2px #d2d8b0b8;
-                    font-size: 11px;
-                    width: 100%;
-                    color: $inter;
-                }
+        .btn-primary {
+            display: inline-block;
+            background: $inter;
+            color: $navbar-color;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 14px 34px;
+            border-radius: 8px;
+            transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+            box-shadow: 0 4px 20px rgba(0, 185, 190, 0.45);
+
+            &:hover {
+                background: #009aa0;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 28px rgba(0, 185, 190, 0.55);
+            }
+
+            @include responsive(Mobile) {
+                font-size: 13px;
+                padding: 10px 22px;
             }
         }
 
         .open {
-            box-shadow: 0px 2px 5px 2px #9d9d9d;
-            display: flex;
-            justify-content: center;
+            display: inline-flex;
             align-items: center;
-            background: $hover-color ;
-            color: $link-color;
-            width: 280px;
-            height: 40px;
-            border-radius: 10px 15px 0px 10px;
-            margin-left: 90px;
-            padding: 0px;
-            margin-top: 70px;
-            font-size: 17px;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            background: none;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            margin: 0;
+            width: auto;
+            height: auto;
+            border-radius: 0;
 
-            @include responsive(Tablet) {
-                width: 250px;
-                height: 35px;
-                margin-left: 54px;
-                margin-top: 20px;
-                font-size: 15px;
-                box-shadow: 4px 4px 4px 0px $shadow-card;
-            }
-            @include responsive(Mobile){
-                width: 200px;
-                height: 25px;
-                margin-top: 45px;
+            @include responsive(Mobile) {
                 font-size: 12px;
-                box-shadow: 4px 4px 4px 0px rgb(108, 107, 107);
             }
         }
-        .open:hover {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: $inter ;
-            color:$navbar-color;
-            width: 280px;
-            height: 40px;
-            border-radius: 10px 15px 0px 10px;
-            margin-left: 90px;
-            padding: 0px;
-            margin-top: 70px;
-            font-size: 17px;
-            @include responsive(Tablet) {
-                width: 250px;
-                height: 35px;
-                margin-left: 54px;
-                margin-top: 20px;
-                font-size: 15px;
-            }
-            @include responsive(Mobile){
-                width: 200px;
-                height: 25px;
-                margin-top: 45px;
-                font-size: 12px;
-                box-shadow: 4px 4px 4px 0px rgb(156, 156, 156);
-            }
+
+        .open-dot {
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            background: #4ade80;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.28);
+            flex-shrink: 0;
         }
     }
     .popular-book {
